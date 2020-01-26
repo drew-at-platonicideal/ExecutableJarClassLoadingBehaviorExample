@@ -8,7 +8,7 @@ import java.net.URLClassLoader;
 public class App {
     
     public static void main(String a[]) throws ClassNotFoundException, IOException {
-        URL externalResource = new File("C:\\Users\\Admin\\PlatonicIdeal\\workspace\\demo\\src\\main\\resources\\external_resource-0.0.1-SNAPSHOT.jar").toURI().toURL();
+        URL externalResource = new File("./src/main/resources/external_resource-0.0.1-SNAPSHOT.jar").toURI().toURL();
         
         try(URLClassLoader urlClassLoader = new URLClassLoader(new URL[] {externalResource})) {
             Class<?> klazz = urlClassLoader.loadClass("com.example.external_resource.FooController");
