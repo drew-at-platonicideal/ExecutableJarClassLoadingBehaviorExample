@@ -10,9 +10,11 @@ public class App {
     public static void main(String a[]) throws ClassNotFoundException, IOException {
         URL externalResource = new File("./src/main/resources/external_resource-0.0.1-SNAPSHOT.jar").toURI().toURL();
         
+//        ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
+//        try(URLClassLoader urlClassLoader = new URLClassLoader(new URL[] {externalResource}, contextClassLoader)) {
         try(URLClassLoader urlClassLoader = new URLClassLoader(new URL[] {externalResource})) {
-            Class<?> klazz = urlClassLoader.loadClass("com.example.external_resource.FooController");
-            System.out.println(klazz);
+            System.out.println(urlClassLoader.loadClass("com.example.external_resource.FooService"));
+            System.out.println(urlClassLoader.loadClass("com.example.external_resource.FooController"));
         }
         
     }
